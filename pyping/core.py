@@ -161,15 +161,15 @@ class Ping(object):
 		else:
 			print(msg)
 
-	#def print_unknown_host(self, e):
-		#msg = "\nPYTHON-PING: Unknown host: %s (%s)\n" % (self.destination, e.args[1])
-		#if self.quiet_output:
-			#self.response.output.append(msg)
-			#self.response.ret_code = 1
-		#else:
-			#print(msg)
+	def print_unknown_host(self, e):
+		msg = "\nPYTHON-PING: Unknown host: %s (%s)\n" % (self.destination, e.args[1])
+		if self.quiet_output:
+			self.response.output.append(msg)
+			self.response.ret_code = 1
+		else:
+			print(msg)
 
-		#sys.exit(-1)
+		sys.exit(-1)
 
 	def print_success(self, delay, ip, packet_size, ip_header, icmp_header):
 		if ip == self.destination:
